@@ -103,7 +103,7 @@ class _Home_Page_ScreenState extends State<Home_Page_Screen> {
             //     ),
             //   ),
             backgroundColor: const Color.fromARGB(255, 44, 149, 254),
-            title: Text('Salon App',
+            title: Text('Book My Slot',
                 style: GoogleFonts.ubuntu(
                     fontWeight: FontWeight.bold, fontSize: 35.0)),
           ),
