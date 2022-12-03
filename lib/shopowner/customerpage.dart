@@ -67,7 +67,8 @@ class _customerState extends State<customer> {
   @override
   void initState() {
     super.initState();
-    timer = Timer.periodic(Duration(minutes: 10), (Timer t) => UpdateScreen());
+    timer = Timer.periodic(
+        const Duration(minutes: 10), (Timer t) => UpdateScreen());
   }
 
   @override
@@ -80,7 +81,7 @@ class _customerState extends State<customer> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 199, 230, 255),
+        backgroundColor: const Color.fromARGB(255, 199, 230, 255),
         body: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
@@ -160,10 +161,10 @@ class _customerState extends State<customer> {
                                     );
                                     await launch(launchUri.toString());
                                   },
-                                  color: const Color.fromARGB(255, 60, 190, 255),
+                                  color:
+                                      const Color.fromARGB(255, 60, 190, 255),
                                   child: const Padding(
-                                    padding:
-                                        EdgeInsets.fromLTRB(90, 2, 90, 2),
+                                    padding: EdgeInsets.fromLTRB(90, 2, 90, 2),
                                     child: Icon(
                                       Icons.call,
                                       color: Colors.white,
@@ -231,7 +232,7 @@ class _customerState extends State<customer> {
           ], //<Widget>[]
         ),
         floatingActionButton: FloatingActionButton.extended(
-            backgroundColor: Color.fromARGB(255, 93, 172, 250),
+            backgroundColor: const Color.fromARGB(255, 93, 172, 250),
             onPressed: () {
               UpdateScreen();
             },
@@ -249,7 +250,7 @@ class Booking_card_row extends StatelessWidget {
   final String card_text;
   final IconData card_icon;
 
-  Booking_card_row({required this.card_icon, required this.card_text});
+  const Booking_card_row({required this.card_icon, required this.card_text});
   @override
   Widget build(BuildContext context) {
     return Row(

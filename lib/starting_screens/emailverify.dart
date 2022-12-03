@@ -18,7 +18,7 @@ late var _OTP;
 
 var number = 10;
 bool result = false;
-EmailAuth emailAuth = new EmailAuth(sessionName: "Check session");
+EmailAuth emailAuth = EmailAuth(sessionName: "Check session");
 
 class Verification extends StatefulWidget {
   const Verification({Key? key}) : super(key: key);
@@ -33,12 +33,13 @@ class _VerificationState extends State<Verification> {
   //late String Username;
 
   @override
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldMessengerState> _scaffoldKey =
+      GlobalKey<ScaffoldMessengerState>();
   void showInSnackBar(String value) {
-    _scaffoldKey.currentState
-        ?.showSnackBar(new SnackBar(content: new Text(value)));
+    _scaffoldKey.currentState?.showSnackBar(SnackBar(content: Text(value)));
   }
 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: SafeArea(
@@ -61,7 +62,7 @@ class _VerificationState extends State<Verification> {
                     ),
                     Text(
                       'Enter the code sent to you email\n$email_register',
-                      style: TextStyle(fontSize: 16.0),
+                      style: const TextStyle(fontSize: 16.0),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(
@@ -85,7 +86,7 @@ class _VerificationState extends State<Verification> {
                     const SizedBox(
                       height: 8.0,
                     ),
-                    FlatButton(
+                    TextButton(
                         onPressed: () => sendOtp(context),
                         child: const Text(
                           'Resend Code',
@@ -95,19 +96,26 @@ class _VerificationState extends State<Verification> {
                     const SizedBox(
                       height: 32.0,
                     ),
-                    FlatButton(
+                    SizedBox(
                       height: 50.0,
-                      color: Colors.deepPurpleAccent,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0)),
-                      child: const Text(
-                        "VERIFY & PROCEED",
-                        style: TextStyle(color: Colors.white, fontSize: 22.0),
-                      ),
-                      onPressed: () async {
-                        bool result = emailAuth.validateOtp(
-                            recipientMail: email_register, userOtp: _OTP);
-                        if (result) {
+                      child: TextButton(
+                        style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          )),
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Colors.deepPurpleAccent),
+                          padding: MaterialStateProperty.all(
+                              const EdgeInsets.symmetric(
+                                  vertical: 4, horizontal: 30)),
+                        ),
+                        child: const Text(
+                          "VERIFY & PROCEED",
+                          style: TextStyle(color: Colors.white, fontSize: 22.0),
+                        ),
+                        onPressed: () async {
                           if (kDebugMode) {
                             print("Code verified");
                           }
@@ -118,18 +126,16 @@ class _VerificationState extends State<Verification> {
                             print(e);
                             showInSnackBar('Account Already Exist');
                           }
-                        } else {
-                          showInSnackBar('Wrong Code');
-                        }
 
-                        // if(number == 100)
-                        //   {
-                        //     Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(builder: (context) => Home_page()),
-                        //     );
-                        //   }
-                      },
+                          // if(number == 100)
+                          //   {
+                          //     Navigator.push(
+                          //       context,
+                          //       MaterialPageRoute(builder: (context) => Home_page()),
+                          //     );
+                          //   }
+                        },
+                      ),
                     ),
                   ],
                 ),
@@ -150,12 +156,11 @@ void sendOtp(BuildContext context) async {
     }
   } else {
     _onAlertButtonPressed1(context);
-  
   }
 }
 
 _onAlertButtonPressed1(context) {
-  AlertDialog alert = AlertDialog(
+  AlertDialog alert = const AlertDialog(
     title: Text('Sorry Server down'),
     content: Text('Try after some delay'),
   );
@@ -177,14 +182,14 @@ Future<void> Register(String emailtxt, String name, String number,
     'number': number,
     'password': password
   });
-  var register_response = await jsonDecode(response.body);
+  var registerResponse = await jsonDecode(response.body);
   if (kDebugMode) {
     print(response.body);
   }
 
   final prefs = await SharedPreferences.getInstance();
 
-  if (register_response == "Success") {
+  if (registerResponse == "Success") {
     prefs.setString('register', emailtxt);
     prefs.setString('customer', name);
     customer_name = prefs.getString('customer');

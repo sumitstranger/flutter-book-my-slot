@@ -98,13 +98,13 @@ class CheckBooking extends StatelessWidget {
 class card_row extends StatelessWidget {
   final String text;
   final IconData icon;
-  card_row({required this.icon, required this.text});
+  const card_row({required this.icon, required this.text});
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Icon(icon),
-        SizedBox(
+        const SizedBox(
           width: 8,
         ),
         Flexible(child: Text(text)),

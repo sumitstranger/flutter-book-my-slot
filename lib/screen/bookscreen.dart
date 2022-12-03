@@ -24,7 +24,7 @@ class _Salon_screenState extends State<Salon_screen> {
     });
 
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => Time_Slot()));
+        context, MaterialPageRoute(builder: (context) => const Time_Slot()));
   }
 
   Future<dynamic> botom_sheet(BuildContext context) {
@@ -36,7 +36,7 @@ class _Salon_screenState extends State<Salon_screen> {
                 topRight: Radius.circular(30.0))),
         context: context,
         builder: (BuildContext context) {
-          return Container(
+          return SizedBox(
             height: 400.0,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -53,7 +53,7 @@ class _Salon_screenState extends State<Salon_screen> {
                   children: [
                     MaterialButton(
                         elevation: 5.0,
-                        color: Color.fromARGB(255, 225, 234, 237),
+                        color: const Color.fromARGB(255, 225, 234, 237),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)),
                         child: Column(
@@ -75,7 +75,7 @@ class _Salon_screenState extends State<Salon_screen> {
                         }),
                     MaterialButton(
                         elevation: 5.0,
-                        color: Color.fromARGB(255, 225, 234, 237),
+                        color: const Color.fromARGB(255, 225, 234, 237),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)),
                         child: Column(
@@ -97,7 +97,7 @@ class _Salon_screenState extends State<Salon_screen> {
                   padding: const EdgeInsets.only(left: 30.0, right: 30.0),
                   child: MaterialButton(
                       elevation: 5.0,
-                      color: Color.fromARGB(255, 225, 234, 237),
+                      color: const Color.fromARGB(255, 225, 234, 237),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                       child: Column(
@@ -110,7 +110,7 @@ class _Salon_screenState extends State<Salon_screen> {
                                 height: 120.0,
                                 width: 120.0,
                               ),
-                              Text(
+                              const Text(
                                 '+',
                                 style: TextStyle(fontSize: 70.0),
                               ),
@@ -143,7 +143,7 @@ class _Salon_screenState extends State<Salon_screen> {
           children: [
             Material(
               elevation: 2.0,
-              child: Container(
+              child: SizedBox(
                 width: double.infinity,
                 child: Image(
                     fit: BoxFit.fitWidth,
@@ -151,7 +151,7 @@ class _Salon_screenState extends State<Salon_screen> {
                         Salon_image[card_position]['image_name'])),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
             Expanded(
@@ -159,36 +159,35 @@ class _Salon_screenState extends State<Salon_screen> {
                 padding: const EdgeInsets.only(right: 6.0, left: 6.0),
                 child: Container(
                   width: double.infinity,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 255, 255, 255),
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10.0),
                           topRight: Radius.circular(10.0))),
                   child: Column(
                     children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.fromLTRB(85.0, 8.0, 85.0, 0.0),
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(85.0, 8.0, 85.0, 0.0),
                         child: Divider(
                           color: Colors.black,
                           thickness: 5,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 24.0,
                       ),
                       Text(Salon_image[card_position]['Name'],
                           textAlign: TextAlign.center,
                           style: GoogleFonts.ubuntu(
                               fontSize: 35.0, fontWeight: FontWeight.bold)),
-                      SizedBox(
+                      const SizedBox(
                         height: 12.0,
                       ),
                       Text(Salon_image[card_position]['address'],
                           textAlign: TextAlign.center,
                           style: GoogleFonts.ubuntu(
                               fontSize: 20.0, fontWeight: FontWeight.w500)),
-                      SizedBox(
+                      const SizedBox(
                         height: 12.0,
                       ),
                       Text(Salon_image[card_position]['number'],
@@ -236,7 +235,7 @@ class _Salon_screenState extends State<Salon_screen> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20.0,
                       )
                     ],

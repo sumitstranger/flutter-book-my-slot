@@ -49,7 +49,7 @@ class _Time_SlotState extends State<Time_Slot> {
     return true;
   }
 
-  Future<void> dobooking(String time_book) async {
+  Future<void> dobooking(String timeBook) async {
     try {
       final prefs = await SharedPreferences.getInstance();
       var res = await http.post(Uri.parse(url_booking), body: {
@@ -57,18 +57,16 @@ class _Time_SlotState extends State<Time_Slot> {
         'name': prefs.getString('register') != null
             ? prefs.getString('register').toString()
             : prefs.getString('Login').toString(),
-        'time': time_book.toString(),
+        'time': timeBook.toString(),
         'type': choice.toString()
       });
       var data = await jsonDecode(res.body);
       print(res.body);
       if (data.toString() == 'Success') {
-        
-
         next(context);
 
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Booked()));
+            context, MaterialPageRoute(builder: (context) => const Booked()));
       }
     } catch (e) {
       print(e);
@@ -80,7 +78,7 @@ class _Time_SlotState extends State<Time_Slot> {
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(60),
+          preferredSize: const Size.fromHeight(60),
           child: AppBar(
             flexibleSpace: Container(),
             automaticallyImplyLeading: false,
@@ -102,10 +100,10 @@ class _Time_SlotState extends State<Time_Slot> {
         ),
         body: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Expanded(
@@ -153,7 +151,7 @@ class _Time_SlotState extends State<Time_Slot> {
                           child: Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10.0),
-                                color: Color.fromARGB(255, 174, 190, 201),
+                                color: const Color.fromARGB(255, 174, 190, 201),
                               ),
                               child: Padding(
                                 padding:
@@ -180,7 +178,7 @@ class _Time_SlotState extends State<Time_Slot> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),
-            backgroundColor: Color.fromARGB(255, 252, 252, 252),
+            backgroundColor: const Color.fromARGB(255, 252, 252, 252),
             onPressed: () {
               int count = 0;
               Navigator.popUntil(context, (route) {
@@ -200,7 +198,7 @@ class _Time_SlotState extends State<Time_Slot> {
 }
 
 _onAlertButtonPressed1(context) {
-  AlertDialog alert = AlertDialog(
+  AlertDialog alert = const AlertDialog(
     title: Text('Booking Slot'),
     content: LinearProgressIndicator(
       color: kPrimaryColor,

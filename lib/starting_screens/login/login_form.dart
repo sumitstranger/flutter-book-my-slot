@@ -42,7 +42,7 @@ class _LoginFormState extends State<LoginForm> {
       duration: widget.animationDuration * 4,
       child: Align(
         alignment: Alignment.center,
-        child: Container(
+        child: SizedBox(
           width: widget.size.width,
           height: widget.defaultLoginSize,
           child: SingleChildScrollView(
@@ -60,19 +60,18 @@ class _LoginFormState extends State<LoginForm> {
                     fontSize: 40,
                   ),
                 ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 RoundedInput(
                   icon: Icons.mail,
                   hint: 'email',
-                  value: (String value_input) {
-                    email_login = value_input;
+                  value: (String valueInput) {
+                    email_login = valueInput;
                   },
                 ),
-               
                 RoundedPasswordInput(
                   hint: 'Password',
-                  value: (String value_input) {
-                    password_login = value_input;
+                  value: (String valueInput) {
+                    password_login = valueInput;
                   },
                 ),
                 TextButton(
@@ -86,7 +85,7 @@ class _LoginFormState extends State<LoginForm> {
                       'Forget Password ?',
                       style: TextStyle(color: Colors.black, fontSize: 20.0),
                     )),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 RoundedButton(
                   title: 'LOGIN',
                   ontap: () {
@@ -108,7 +107,7 @@ Future<void> Login(
     String emailtxt, String password, BuildContext context) async {
   var response = await http.post(Uri.parse(url_login),
       body: {'email': emailtxt, 'password': password});
-  var login_data = await jsonDecode(response.body);
+  var loginData = await jsonDecode(response.body);
   if (emailtxt != Null && password != Null) {
     final prefs = await SharedPreferences.getInstance();
 
@@ -119,7 +118,7 @@ Future<void> Login(
     //         builder: (context) => const Home_Page_Screen()),
     //   );
 
-    if (login_data.toString() == "Success") {
+    if (loginData.toString() == "Success") {
       prefs.setString('customer', name_login);
       customer_name = prefs.getString('customer');
       prefs.setString('Login', emailtxt);
@@ -135,7 +134,7 @@ Future<void> Login(
 }
 
 _onAlertButtonPressed1(context) {
-  AlertDialog alert = AlertDialog(
+  AlertDialog alert = const AlertDialog(
     title: Text('Account Not Exists'),
     content: Text("Please Sign up first"),
   );

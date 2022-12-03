@@ -13,7 +13,7 @@ String _salonshopemail = "";
 String _salonshopnumber = "";
 
 class Shop_owner_login extends StatefulWidget {
-  Shop_owner_login({Key? key}) : super(key: key);
+  const Shop_owner_login({Key? key}) : super(key: key);
 
   @override
   State<Shop_owner_login> createState() => _Shop_owner_loginState();
@@ -44,7 +44,7 @@ class _Shop_owner_loginState extends State<Shop_owner_login> {
         });
 
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => customer()));
+            context, MaterialPageRoute(builder: (context) => const customer()));
       }
     } catch (e) {
       print(e);
@@ -56,7 +56,7 @@ class _Shop_owner_loginState extends State<Shop_owner_login> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 68, 171, 255),
+        backgroundColor: const Color.fromARGB(255, 68, 171, 255),
         title: Text(
           'Verification',
           style: GoogleFonts.ubuntu(fontSize: 35, fontWeight: FontWeight.bold),
@@ -66,7 +66,7 @@ class _Shop_owner_loginState extends State<Shop_owner_login> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 80.0,
             ),
             Text(
@@ -76,7 +76,7 @@ class _Shop_owner_loginState extends State<Shop_owner_login> {
                   fontWeight: FontWeight.bold,
                   color: Colors.black),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Padding(
@@ -87,20 +87,20 @@ class _Shop_owner_loginState extends State<Shop_owner_login> {
                 },
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       Icons.perm_identity,
                       color: Color.fromARGB(255, 68, 171, 255),
                     ),
-                    label: Text('Salon Id'),
+                    label: const Text('Salon Id'),
                     fillColor: Colors.white,
                     filled: true,
                     border: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color.fromARGB(255, 0, 0, 0)),
+                        borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 0, 0, 0)),
                         borderRadius: BorderRadius.circular(10))),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Padding(
@@ -111,20 +111,20 @@ class _Shop_owner_loginState extends State<Shop_owner_login> {
                 },
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       Icons.mail_outline_outlined,
                       color: Color.fromARGB(255, 68, 171, 255),
                     ),
-                    label: Text('email'),
+                    label: const Text('email'),
                     fillColor: Colors.white,
                     filled: true,
                     border: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color.fromARGB(255, 0, 0, 0)),
+                        borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 0, 0, 0)),
                         borderRadius: BorderRadius.circular(10))),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Padding(
@@ -135,24 +135,24 @@ class _Shop_owner_loginState extends State<Shop_owner_login> {
                 },
                 keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       Icons.phone,
                       color: Color.fromARGB(255, 68, 171, 255),
                     ),
-                    label: Text('Number'),
+                    label: const Text('Number'),
                     fillColor: Colors.white,
                     filled: true,
                     border: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Color.fromARGB(255, 0, 0, 0)),
+                        borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 0, 0, 0)),
                         borderRadius: BorderRadius.circular(10))),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             MaterialButton(
-                color: Color.fromARGB(255, 68, 171, 255),
+                color: const Color.fromARGB(255, 68, 171, 255),
                 elevation: 2,
                 shape: RoundedRectangleBorder(
                     //  side: BorderSide(color: Colors.black, width: 2),
@@ -160,31 +160,27 @@ class _Shop_owner_loginState extends State<Shop_owner_login> {
                   10,
                 )),
                 onPressed: () {
-                  if (_salonshopemail != null &&
-                      _salonshopnumber != null &&
-                      _saloshopid != null) {
-                    verifiy_owner();
-                  }
+                  verifiy_owner();
                 },
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(70, 8, 70, 8),
+                child: const Padding(
+                  padding: EdgeInsets.fromLTRB(70, 8, 70, 8),
                   child: Text(
                     'LogIn',
                     style: TextStyle(fontSize: 32, color: Colors.white),
                   ),
                 )),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
-            Text(
+            const Text(
               'New to this app? Then Click',
               style: TextStyle(fontSize: 21),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             MaterialButton(
-                color: Color.fromARGB(255, 114, 191, 255),
+                color: const Color.fromARGB(255, 114, 191, 255),
                 elevation: 2,
                 shape: RoundedRectangleBorder(
                     //  side: BorderSide(color: Colors.black, width: 2),
@@ -192,13 +188,13 @@ class _Shop_owner_loginState extends State<Shop_owner_login> {
                   10,
                 )),
                 onPressed: () async {
-                  final String url =
+                  const String url =
                       'https://docs.google.com/forms/d/e/1FAIpQLSceJY22o43npEg77uxGViJj3bDin_01ilUhxoA0fcNd9hAgDQ/viewform?usp=sf_link';
 
                   await launchUrl(Uri.parse(url));
                 },
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(70, 8, 70, 8),
+                child: const Padding(
+                  padding: EdgeInsets.fromLTRB(70, 8, 70, 8),
                   child: Text(
                     'New',
                     style: TextStyle(fontSize: 32, color: Colors.white),

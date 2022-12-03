@@ -33,12 +33,12 @@ class _Home_Page_ScreenState extends State<Home_Page_Screen> {
     setState(() {
       username = data[0]['name'].toString();
 
-      var user_image_data = data[0]['Profile_Picture'];
-      print(user_image_data);
+      var userImageData = data[0]['Profile_Picture'];
+      print(userImageData);
 
-      if (user_image_data == '') {
+      if (userImageData == '') {
         user_image = null;
-      } else if (user_image_data == null) {
+      } else if (userImageData == null) {
         user_image = null;
       } else {
         user_image = File(data[0]['Profile_Picture']);
@@ -47,7 +47,7 @@ class _Home_Page_ScreenState extends State<Home_Page_Screen> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => Profile(),
+        builder: (context) => const Profile(),
       ),
     );
   }
@@ -91,7 +91,7 @@ class _Home_Page_ScreenState extends State<Home_Page_Screen> {
                     onTap: () {
                       getProfiledetail(context);
                     },
-                    child: Icon(
+                    child: const Icon(
                       Icons.account_circle_sharp,
                       size: 50.0,
                     )),
@@ -102,21 +102,21 @@ class _Home_Page_ScreenState extends State<Home_Page_Screen> {
             //       bottom: Radius.circular(10),
             //     ),
             //   ),
-            backgroundColor: Color.fromARGB(255, 44, 149, 254),
+            backgroundColor: const Color.fromARGB(255, 44, 149, 254),
             title: Text('Salon App',
                 style: GoogleFonts.ubuntu(
                     fontWeight: FontWeight.bold, fontSize: 35.0)),
           ),
         ),
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("images/bg2.gif"), fit: BoxFit.cover)),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
                 GestureDetector(
@@ -139,23 +139,23 @@ class _Home_Page_ScreenState extends State<Home_Page_Screen> {
                         child: Center(
                           child: Row(
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 width: 20,
                               ),
                               Text(
                                 'Search Location...',
                                 style: GoogleFonts.ubuntu(fontSize: 20),
                               ),
-                              Spacer(),
+                              const Spacer(),
                               Container(
                                   height: double.infinity,
                                   width: 60,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                       borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(20),
                                           bottomRight: Radius.circular(20)),
                                       color: Color.fromARGB(255, 91, 173, 255)),
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.search,
                                     color: Colors.white,
                                     size: 40,
@@ -175,15 +175,15 @@ class _Home_Page_ScreenState extends State<Home_Page_Screen> {
                       return GestureDetector(
                         onTap: () {
                           salon_id = int.parse(Salon_image[index]['salonid']);
-                          String for_card = Salon_image[index]['salonid'];
-                          card_position = int.parse(for_card) - 1;
+                          String forCard = Salon_image[index]['salonid'];
+                          card_position = int.parse(forCard) - 1;
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Salon_screen()));
                         },
                         child: Card(
-                          shadowColor: Color.fromARGB(255, 0, 2, 5),
+                          shadowColor: const Color.fromARGB(255, 0, 2, 5),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0)),
                           color: kCardColor,
@@ -192,7 +192,7 @@ class _Home_Page_ScreenState extends State<Home_Page_Screen> {
                               padding: const EdgeInsets.all(10.0),
                               child: Row(
                                 children: [
-                                  Container(
+                                  SizedBox(
                                     height: 140,
                                     width: 180,
                                     child: ClipRRect(
@@ -205,7 +205,7 @@ class _Home_Page_ScreenState extends State<Home_Page_Screen> {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 30.0,
                                   ),
                                   Flexible(
@@ -236,7 +236,7 @@ class _Home_Page_ScreenState extends State<Home_Page_Screen> {
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
-            backgroundColor: Color.fromARGB(255, 44, 149, 254),
+            backgroundColor: const Color.fromARGB(255, 44, 149, 254),
             onPressed: () {
               getplaces();
             },
@@ -244,7 +244,7 @@ class _Home_Page_ScreenState extends State<Home_Page_Screen> {
               'Refresh',
               style: GoogleFonts.ubuntu(fontWeight: FontWeight.bold),
             ),
-            icon: Icon(Icons.refresh)),
+            icon: const Icon(Icons.refresh)),
       ),
     );
   }

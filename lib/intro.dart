@@ -4,14 +4,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:salon_app/shopowner/Shopowner_login.dart';
 import 'package:salon_app/starting_screens/Login_page.dart';
 
-
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-         onWillPop: () async {
+      onWillPop: () async {
         final shouldPop = await showDialog<bool>(
           context: context,
           builder: (context) {
@@ -39,12 +38,12 @@ class App extends StatelessWidget {
       },
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: Color.fromARGB(255, 0, 0, 0),
+          backgroundColor: const Color.fromARGB(255, 0, 0, 0),
           body: Center(
             child: Container(
               height: double.infinity,
               width: double.infinity,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('images/choose.png'), fit: BoxFit.cover),
               ),
@@ -58,8 +57,10 @@ class App extends StatelessWidget {
                     color: Colors.transparent,
                     child: OutlinedButton(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => LoginScreen()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginScreen()));
                       },
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(35, 10, 35, 10),
@@ -72,10 +73,11 @@ class App extends StatelessWidget {
                       style: OutlinedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(40)),
-                          side: BorderSide(color: Colors.white, width: 4)),
+                          side:
+                              const BorderSide(color: Colors.white, width: 4)),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 14,
                   ),
                   Material(
@@ -85,10 +87,11 @@ class App extends StatelessWidget {
                     color: Colors.transparent,
                     child: OutlinedButton(
                       onPressed: () {
- Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Shop_owner_login()));
-                        
-
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const Shop_owner_login()));
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
@@ -101,10 +104,11 @@ class App extends StatelessWidget {
                       style: OutlinedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(40)),
-                          side: BorderSide(color: Colors.white, width: 4)),
+                          side:
+                              const BorderSide(color: Colors.white, width: 4)),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 80,
                   )
                 ],
