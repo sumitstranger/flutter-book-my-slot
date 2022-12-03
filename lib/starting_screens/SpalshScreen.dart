@@ -28,7 +28,7 @@ class _Splash_Screen_ScreenState extends State<Splash_Screen_Screen> {
             prefs.getString('Login') != null) {
           try {
             var response = await http.get(Uri.parse(url_getdata));
-            var data = await jsonDecode(response.body);
+            var data = salonData;
             setState(() {
               Salon_image = data;
             });
@@ -36,8 +36,10 @@ class _Splash_Screen_ScreenState extends State<Splash_Screen_Screen> {
             print(e);
           }
 
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => Home_Page_Screen()));
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const Home_Page_Screen()));
         } else if (prefs.getString('id') != null &&
             prefs.getString('email_owner') != null &&
             prefs.getString('num') != null) {
@@ -61,14 +63,14 @@ class _Splash_Screen_ScreenState extends State<Splash_Screen_Screen> {
               TodayBooking = data_2;
             });
 
-            Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => customer()));
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const customer()));
           } catch (e) {
             print(e);
           }
         } else {
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => App()));
+              context, MaterialPageRoute(builder: (context) => const App()));
         }
       }
     } on SocketException catch (_) {
@@ -88,7 +90,7 @@ class _Splash_Screen_ScreenState extends State<Splash_Screen_Screen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           color: Colors.white,
           image: DecorationImage(
               image: AssetImage("images/splash.png"), fit: BoxFit.cover)),
@@ -106,7 +108,7 @@ class Login extends StatelessWidget {
 
 _showAlertDialog(BuildContext context, first, second) {
   Widget okButton = TextButton(
-    child: Text("OK"),
+    child: const Text("OK"),
     onPressed: () {
       SystemNavigator.pop();
     },

@@ -42,4 +42,50 @@ List checkbooking = [];
 
 //alert dialog
 
-
+const salonData = [
+  {
+    "salonid": "1",
+    "Name": "Belle femme Hair Salon",
+    "address": "Jawahar Nagar, Housing board",
+    "number": "9351407773",
+    "email": "s@gmail.com",
+    "search_address": "Jawahar Nagar",
+    "image_name": "salon0.jpg"
+  },
+  {
+    "salonid": "2",
+    "Name": "Style n Scissors",
+    "address": "Vikas Nagar ",
+    "number": "9245412170",
+    "email": "v@gmail.com",
+    "search_address": "Vikas Nagar",
+    "image_name": "salon1.jpg"
+  },
+  {
+    "salonid": "3",
+    "Name": "Modern Salon",
+    "address": "MG Road",
+    "number": "9955782471",
+    "email": "mnp@gmail.com",
+    "search_address": "MG Road",
+    "image_name": "salon2.jpg"
+  },
+  {
+    "salonid": "4",
+    "Name": "Mens Parlour",
+    "address": "Vijay Nagar",
+    "number": "9142715370",
+    "email": "idk@gmail.com",
+    "search_address": "Vijay Nagar",
+    "image_name": "salon3.jpg"
+  },
+  {
+    "salonid": "5",
+    "Name": "Hair Magic",
+    "address": "LIG",
+    "number": "9640712531",
+    "email": "abc@gmail.com",
+    "search_address": "LIG",
+    "image_name": "salon4.jpg"
+  }
+];
